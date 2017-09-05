@@ -11,8 +11,8 @@
 #
 
 define anaconda::channel(
-  $channel   = $title,
-  $base_path = '/opt/anaconda'
+  String $channel   = $title,
+  String $base_path = '/opt/anaconda'
 ) {
 
   anchor{"anaconda::channel::${title}::begin":}

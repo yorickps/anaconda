@@ -2,11 +2,11 @@
 # To add packages see anaconda::package
 
 define anaconda::env(
-  $anaconda_version = '4.2.0',
-  $numpy            = '1.7',
-  $python           = '3.5',
-  $base_path        = '/opt/anaconda',
-  $exec_timeout     = '300',
+  String $anaconda_version = '4.2.0',
+  String $numpy            = '1.7',
+  String $python           = '3.5',
+  String $base_path        = '/opt/anaconda',
+  String $exec_timeout     = '300',
 ) {
   anchor{"anaconda::env::${title}::begin":}
   include anaconda

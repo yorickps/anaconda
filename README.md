@@ -51,11 +51,24 @@ This class simply installs Anaconda into /opt/anaconda and accepts the license a
 hardcoded for now.
 
 ### anaconda::env
-```
-define anaconda::env( $anaconda_version='1.5', $numpy='1.7', $python='2.7')
-```
+
 Create a Python environment.  Overriding the anaconda_version, numpy, or python version will create the env 
 with the appropriate versions.
+
+#### Parameters
+
+##### `anaconda_version`
+Default: '1.5'
+
+##### `numpy`
+Default: '1.7'
+
+##### `python`
+Default: 2.7
+
+##### `exec_timeout`
+The timeout used for the exec puppet resource. The time is in seconds.  
+Default: '300'
 
 ### anaconda::package
 In future versions, this could be a true package provider, but for now it is just a defined type.
@@ -70,6 +83,20 @@ anaconda::package{[dnspython,rope, py]:
 ```
 If you set the env, you create a dependency on a anaconda::env type that matchs the env.  It will not auto-create
 the environment if you forget the dependency.
+
+### anaconda::channel
+Channels are the path that conda takes to look for packages. Details can be found [here](https://conda.io/docs/user-guide/tasks/create-custom-channels.html).
+
+#### Parameters
+
+##### `channel`
+The name of the channel to add.  
+Default:  $title
+
+##### `base_path`
+The path to the base directory of anaconda.  
+Default: '/opt/anaconda'
+
 
 ## Things to Improve
 * Create a true package provider
