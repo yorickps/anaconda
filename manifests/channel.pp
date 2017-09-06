@@ -21,8 +21,6 @@ define anaconda::channel(
 
   $conda = "${base_path}/bin/conda"
 
-  notice("anaconda::channel::${title} - unless = ${conda} config --get channels | grep '${name}'")
-
   exec { "anaconda_channel_${name}":
     command => "${conda} config --add channels ${channel}",
     require => Anchor["anaconda::channel::${title}::begin"],
