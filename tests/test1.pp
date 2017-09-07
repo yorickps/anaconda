@@ -1,5 +1,5 @@
-anaconda::env{test2:}
-anaconda::package{[dnspython,pyside,sympy]: 
-    env => "test2"
+anaconda::env{'test1':}
+anaconda::package{['dnspython','pyside','sympy']:
+  env => 'test1'
 }
 
