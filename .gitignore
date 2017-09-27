@@ -1,0 +1,10 @@
+*.swp
+*.swo
+pkg
+Gemfile.lock
+.project
+.settings
+vagrant/puppet/modules/*
+.vagrant
+/vagrant/nbproject/private/
+vagrant/puppet/logs
