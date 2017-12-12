@@ -4,6 +4,5 @@ anaconda::package{['dnspython','rope', 'py']:
 }
 anaconda::env{'test1':
   anaconda_version => '1.4',
-  python           => '3.3',
-  numpy            => '1.7',
+  version          => '3.3',
 }

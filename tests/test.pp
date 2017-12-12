@@ -1,4 +1,15 @@
 
+anaconda::env{'test1': }
+
+anaconda::package{['sympy']:
+  env => 'test1'
+}
+
+anaconda::env{'test2':}
+anaconda::package{['dnspython','rope', 'py']:
+  env => 'test2'
+}
+
 anaconda::channel{'bioconda': }
 
 anaconda::env{'test3':

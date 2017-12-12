@@ -17,8 +17,8 @@ include anaconda
 
 # Create env named test1 with python3.3
 anaconda::env{test1:
-    anaconda_version => "1.4",
-    python           => "3.3",
+    anaconda_version => "4.2.0",
+    python           => "3.6",
 }
 
 # Create env named test2 - /opt/anaconda/envs/test2
@@ -80,13 +80,10 @@ with the appropriate versions.
 #### Parameters
 
 ##### `anaconda_version`
-Default: '1.5'
+Default: '4.4.0'
 
-##### `numpy`
-Default: '1.7'
-
-##### `python`
-Default: 2.7
+##### `language`
+Default: 'python'
 
 ##### `exec_timeout`
 The timeout used for the exec puppet resource. The time is in seconds.  

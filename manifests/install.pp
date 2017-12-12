@@ -3,7 +3,8 @@ class anaconda::install {
 
   include anaconda::params
 
-  # Bug fix: the require will force a download even if it doesn't have to be installed
+  # Bug fix: the require will force a download even if it
+  # doesn't have to be installed
   exec { 'install_anaconda':
     command => "bash /tmp/${anaconda::params::installer} -b -p /opt/anaconda",
     creates => '/opt/anaconda',
@@ -12,7 +13,8 @@ class anaconda::install {
 
   # Bug fix: the onlyif prevents the download from happening
   # when it doesn't need to be installed
-  # Avoid circular dependency on "install_anaconda", run if /opt/anaconda doesn't exist
+  # Avoid circular dependency on "install_anaconda", run if /opt/anaconda
+  # doesn't exist
   exec { 'download_anaconda':
     command => "wget -P /tmp ${anaconda::params::url}",
     creates => "/tmp/${anaconda::params::installer}",
