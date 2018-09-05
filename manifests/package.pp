@@ -6,8 +6,8 @@
 define anaconda::package(
   $env       = undef,
   $language  = 'python',
-  $base_path = '/opt/anaconda'
-){
+  $base_path = $anaconda::params::base_path
+) inherits from anaconda::params {
   include anaconda
 
   $conda = "${base_path}/bin/conda"

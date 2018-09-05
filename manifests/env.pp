@@ -5,10 +5,10 @@
 define anaconda::env(
   Optional[String] $language         = undef,
   String           $version          = '3.6',
-  String           $anaconda_version = '4.4.0',
-  String           $base_path        = '/opt/anaconda',
+  String           $anaconda_version = $anaconda::params::anaconda_version,
+  String           $base_path        = $anaconda::params::base_path,
   String           $exec_timeout     = '300',
-){
+) inherits anaconda::params {
 
   anchor{"anaconda::env::${title}::begin":}
   include anaconda

@@ -6,8 +6,8 @@ class anaconda::install {
   # Bug fix: the require will force a download even if it
   # doesn't have to be installed
   exec { 'install_anaconda':
-    command => "bash /tmp/${anaconda::params::installer} -b -p /opt/anaconda",
-    creates => '/opt/anaconda',
+    command => "bash /tmp/${anaconda::params::installer} -b -p ${anaconda::params::base_path}",
+    creates => $anaconda::params::base_path,
     require => Exec['download_anaconda'],
   }
 
@@ -18,10 +18,10 @@ class anaconda::install {
   exec { 'download_anaconda':
     command => "wget -P /tmp ${anaconda::params::url}",
     creates => "/tmp/${anaconda::params::installer}",
-    onlyif  => 'test ! -d /opt/anaconda',
+    onlyif  => "test ! -d ${anaconda::params::base_path}",
   }
 
-  file { '/opt/anaconda/.condarc':
+  file { "${anaconda::params::base_path}/.condarc":
     ensure  => present,
     source  => 'puppet:///modules/anaconda/.condarc',
     require => Exec['install_anaconda'],
