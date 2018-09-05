@@ -1,0 +1,7 @@
+---
+anaconda::base_url: 'http://repo.continuum.io/archive'
+anaconda::base_path: '/opt/anaconda'
+anaconda::anaconda_version: '5.2.0'
+anaconda::install_version: '5.2.0'
+anaconda::python_version: '3.6'
+
