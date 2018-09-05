@@ -12,8 +12,8 @@
 
 define anaconda::channel(
   String $channel   = $title,
-  String $base_path = $anaconda::params::base_path,
-) inherits anaconda::params {
+  String $base_path = lookup(anaconda::base_path),
+) {
 
   anchor{"anaconda::channel::${title}::begin":}
 
