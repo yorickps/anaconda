@@ -4,4 +4,4 @@ anaconda::base_path: '/opt/anaconda'
 anaconda::anaconda_version: '5.2.0'
 anaconda::install_version: '5.2.0'
 anaconda::python_version: '3.6'
-
+anaconda::url: "%{lookup('anaconda::base_url')/%{lookup('anaconda::installer')"

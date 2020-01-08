@@ -1,0 +1,2 @@
+---
+anaconda::installer: "Anaconda3-%{lookup('anaconda_install_version'}-MacOSX-x86_64.sh"
